@@ -6,11 +6,20 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.conf import settings
 from django.db.models import Q
+from django.contrib.auth import logout
 
 def home_view(request):
-    if request.user.is_authenticated:
-        return HttpResponseRedirect('afterlogin')
-    return render(request,'vehicle/index.html')
+    #if request.user.is_authenticated:
+        #return HttpResponseRedirect('afterlogin')
+        return render(request,'vehicle/index.html')
+
+#def logout_view(request):
+    #return render(request,'vehicle/index.html')
+
+def logout_view(request):
+     logout(request)
+     return redirect('')
+    
 
 
 #for showing signup/login button for customer
